@@ -7,7 +7,6 @@ import com.eeg_project.components.emitter.AppNativeEventEmitter;
 import com.facebook.react.ReactApplication;
 import com.airbnb.android.react.lottie.LottiePackage;
 import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
-import com.cubicphuse.RCTTorch.RCTTorchPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -39,7 +38,6 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
             new LottiePackage(),
             new RNI18nPackage(),
-          new RCTTorchPackage(),
           new SvgPackage(),
           new EEGPackage()
       );

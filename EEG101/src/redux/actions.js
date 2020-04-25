@@ -3,7 +3,6 @@
 import Connector from "../native/Connector";
 import Classifier from "../native/Classifier";
 import { NativeModules, NativeEventEmitter, Vibration } from "react-native";
-import Torch from "react-native-torch";
 import {
   SET_CONNECTION_STATUS,
   SET_GRAPHVIEW_DIMENSIONS,
@@ -134,7 +133,7 @@ export function initNativeEventListeners() {
             subscription.remove();
             dispatch(setBatteryValue(null));
             listenerOn = false;
-            Battery.stopReading();   
+            Battery.stopReading();
           }
           break;
       }
@@ -190,11 +189,7 @@ export function stopBCI() {
 
 const actionOn = bciAction => {
   try {
-    if (bciAction === config.bciAction.LIGHT) {
-      Torch.switchState(true);
-    } else if (bciAction === config.bciAction.VIBRATE) {
-      Vibration.vibrate(500);
-    }
+    Vibration.vibrate(500);
   } catch (e) {
     console.log(e.message);
   }
@@ -202,11 +197,7 @@ const actionOn = bciAction => {
 
 const actionOff = bciAction => {
   try {
-    if (bciAction === config.bciAction.LIGHT) {
-      Torch.switchState(false);
-    } else if (bciAction === config.bciAction.VIBRATE) {
-      Vibration.cancel();
-    }
+    Vibration.cancel();
   } catch (e) {
     console.log(e.message);
   }
