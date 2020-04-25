@@ -11,6 +11,8 @@ import { setMenu } from "../redux/actions";
 import * as colors from "../styles/colors";
 import config from "../redux/config";
 
+import NetworkClient from "../components/NetworkCLient"
+
 // We don't actually use this prop, but it feels good to have, eh?
 function mapStateToProps(state) {
   return {
@@ -36,7 +38,7 @@ class NavBar extends Component {
     super(props);
   }
 
-  renderBatteryIcon() {   
+  renderBatteryIcon() {
     if (this.props.batteryValue === null) {
       return (
         <View style={styles.batteryContainer}>
@@ -119,10 +121,13 @@ class NavBar extends Component {
 
           </TouchableOpacity>
           <View>
+            <NetworkClient></NetworkClient>
+          </View>
+          <View>
             {this.renderBatteryIcon()}
           </View>
         </View>
-      );     
+      );
     } else {
       return (
         <View style={styles.navContainer}>
@@ -132,10 +137,12 @@ class NavBar extends Component {
               source={require("../assets/burger.png")}
               resizeMode={"contain"}
             />
-
           </TouchableOpacity>
+          <View>
+            <NetworkClient></NetworkClient>
+          </View>
         </View>
-      );        
+      );
     }
   }
 

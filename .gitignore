@@ -12,3 +12,4 @@ EEG101/android/app/libs/libmuse_android.jar
 .vscode
 
 .idea
+EEG101/android/app/src/main/jniLibs/armeabi-v7a/libmuse_android.so
